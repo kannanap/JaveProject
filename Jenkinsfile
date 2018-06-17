@@ -11,7 +11,7 @@ node {
 //sh "${mvnHome}/bin/mvn package"  
 //     }
 
-stage('Mvn Packaging")
+stage('Mvn Packaging')
      { 
      sh 'mvn clean package'
       }
