@@ -13,8 +13,8 @@ node {
 
 stage('Mvn Packaging')
      { 
-     sh 'mvn clean package'
+    def mvnHome =  tool name: 'Maven_3_5_3', type: 'maven'    
+     def mvnCMD = "${mvnHome}/bin/mvn" 
+     sh '${mvnCMD} clean package'
       }
-
-
   }  
