@@ -24,7 +24,7 @@ node{
    stage('DeployContainer on Dev Server'){
    def dockerRun = 'docker run -p 8080:8080 -d --name myapp kannanacn/webapp:1.0.0'
    sshagent(['Dev-Server']) {
-   sh "ssh -o StrictHostKeyChecking=no ec2-user@ec2-13-127-223-235 ${dockerRun}"
+   sh "ssh -o StrictHostKeyChecking=no ec2-user@13.127.223.235 ${dockerRun}"
      // some block
      }
     }
