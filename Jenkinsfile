@@ -19,6 +19,6 @@ node{
 withCredentials([string(credentialsId: 'dockerloginPWD', variable: 'dockerloginPWD')]) {
     sh "docker login -u kannanacn -p ${dockerloginPWD}"
      }
-    sh 'docker push -t kannanacn/webapp:1.0.0'
+    sh 'docker push kannanacn/webapp:1.0.0'
     }
    }
