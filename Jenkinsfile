@@ -1,7 +1,7 @@
 node { 
  stage('SCM Checkout')  
          { 
-         git 'https://github.com/kannanap/JaveProject.git'   
+         https://github.com/kannanap/JaveProject.git'   
          } 
    
 //   stage('Compile-Package') 
