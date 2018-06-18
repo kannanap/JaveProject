@@ -15,6 +15,6 @@ stage('Mvn Packaging')
      { 
     def mvnHome =  tool name: 'Maven_3_5_3', type: 'maven'    
      def mvnCMD = "${mvnHome}/bin/mvn" 
-     sh '${mvnCMD} clean package'
+     sh "${mvnCMD} clean package"
       }
   }  
