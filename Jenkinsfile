@@ -1,6 +1,6 @@
 node{
    stage('SCM Checkout'){
-     git credentialsId: '94e6862e-a136-4850-b3e3-e167852a1cdb', url: 'https://github.com/javahometech/my-app.git'
+     git credentialsId: '94e6862e-a136-4850-b3e3-e167852a1cdb', url: 'https://github.com/kannanap/JaveProject.git'
    }
    stage('Compile-Package'){
       // Get maven home path
