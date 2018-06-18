@@ -11,7 +11,7 @@ node{
    
   stage('BUILD DCOKER IMAGE'){
      //Building the Docker Images 
-     sh 'docker build -t kannanacn/webapp:1.0.2.'
+     sh 'docker build -t kannanacn/webapp:1.0.2 .'
       }
        
    stage('PUSH DOCKER IMAGE'){
