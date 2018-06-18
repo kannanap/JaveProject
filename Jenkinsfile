@@ -1,11 +1,12 @@
 node{
    stage('SCM Checkout'){
-     git 'https://github.com/javahometech/my-app'
+     git credentialsId: '94e6862e-a136-4850-b3e3-e167852a1cdb', url: 'https://github.com/javahometech/my-app.git'
    }
    stage('Compile-Package'){
       // Get maven home path
-      def mvnHome =  tool name: 'maven-3_5_3', type: 'maven'   
-      sh "${mvnHome}/bin/mvn package"
+      def mvnHome = tool name: 'Maven_3_5_3', type: 'maven'
+      def mvnCMD  = "${mvnHome}/bin/mvn"
+      sh "${mvnCMD} clean package"
    }
    
    }
