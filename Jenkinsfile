@@ -13,5 +13,12 @@ node{
      //Building the Docker Images 
      sh 'docker build -t kannanacn/webapp:1.0.0 .'
       }
-     
+       
+   stage('Deploy Docker Image'){
+    //Deploy the Docker Images 
+withCredentials([string(credentialsId: 'dockerloginPWD', variable: 'dockerloginPWD')]) {
+    sh "docker login -u kannanacn -p ${dockerloginPWD}"
+     }
+    sh 'docker push -t kannanacn/webapp:1.0.0'
+    }
    }
