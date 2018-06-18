@@ -7,6 +7,11 @@ node{
       def mvnHome = tool name: 'Maven_3_5_3', type: 'maven'
       def mvnCMD  = "${mvnHome}/bin/mvn"
       sh "${mvnCMD} clean package"
-   }
+       }
    
+  stage('Build Docker Image'){
+     //Building the Docker Images 
+     sh 'docker build -t kannanacn/webapp:1.0.0 .'
+      }
+     
    }
