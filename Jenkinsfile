@@ -8,7 +8,12 @@ node{
       def mvnCMD  = "${mvnHome}/bin/mvn"
       sh "${mvnCMD} clean package"
        }
-   
+   stage('SONAR CODE ANALYSIS') {
+         withSonarQubeEnv('SonarCode Analysis') {
+            //Required SonarQube Scanner for Maven_3_5_3
+   sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+         }
+   }            
   stage('BUILD DCOKER IMAGE'){
      //Building the Docker Images 
      sh 'docker build -t kannanacn/webapp:1.0.3 .'
