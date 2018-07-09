@@ -14,7 +14,7 @@ node{
   stage('BUILD DCOKER IMAGE'){
      //Building the Docker Images 
      println ".................Building the Image...................."
-     sh 'docker build -t kannanacn/webapp:1.0.4 .'
+     sh 'docker build -t kannanacn/webapp:1.0.5 .'
       }
        
    stage('PUSH DOCKER IMAGE'){
@@ -23,13 +23,13 @@ node{
      withCredentials([string(credentialsId: 'dockerloginPWD', variable: 'dockerloginPWD')]) {
       sh "docker login -u kannanacn -p ${dockerloginPWD}"
      }
-    sh 'docker push kannanacn/webapp:1.0.4'
+    sh 'docker push kannanacn/webapp:1.0.5'
    }
    stage('DEPLOY TO CONTAINER'){
       println ".................Deploying the Images...................."
-   def dockerRun = 'docker run -p 8080:8080 -d --name myapp1 kannanacn/webapp:1.0.4'
+   def dockerRun = 'docker run -p 8080:8080 -d --name myapp1 kannanacn/webapp:1.0.5'
    sshagent(['dev-serverdeployment']) {
-   sh "ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-127-178-47.ap-south-1.compute.amazonaws.com ${dockerRun}"
+   sh "ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-127-197-79.ap-south-1.compute.amazonaws.com ${dockerRun}"
      // some block
             
      }
