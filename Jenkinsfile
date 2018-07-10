@@ -1,3 +1,4 @@
+
 node{
    stage('SCM CHECKOUT'){
       println ".................Code Checkin and Checkout...................."
@@ -28,7 +29,7 @@ node{
    stage('DEPLOY TO CONTAINER'){
       println ".................Deploying the Images...................."
    def dockerRun = 'docker run -p 8080:8080 -d --name myapp1 kannanacn/webapp:1.0.5'
-   sshagent(['dev-serverdeployment']) {
+        sshagent(['dev-serverdeployment1']) {
    sh "ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-127-197-79.ap-south-1.compute.amazonaws.com ${dockerRun}"
      // some block
             
