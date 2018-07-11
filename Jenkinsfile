@@ -27,7 +27,7 @@
    }
    stage('DEPLOY TO CONTAINER'){
       println ".................Deploying the Images...................."
-   def dockerRun = 'docker run -p 8080:8080 -d --name myappli kannanacn/webapp:1.0.7'
+   def dockerRun = 'docker run -p 8080:8080 -d --name myapp kannanacn/webapp:1.0.7'
         sshagent(['dev-serverdeployment1']) {
    sh "ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-127-197-79.ap-south-1.compute.amazonaws.com ${dockerRun}"
      // some block
