@@ -1,4 +1,4 @@
-26node{
+node{
    stage('SCM CHECKOUT'){
       println ".................Code Checkin and Checkout...................."
      git credentialsId: '94e6862e-a136-4850-b3e3-e167852a1cdb', url: 'https://github.com/kannanap/JaveProject.git'
